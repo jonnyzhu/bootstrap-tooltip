@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap-Tooltip</title>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../dist/bootstrap-tooltip.min.js"></script>
+    <link rel="stylesheet" href="../dist/bootstrap-tooltip.min.css">
+    <script>
+        $(function () {
+            $('.test').bind('click', function(e) {
+                var $table = data2table([
+                    {name: 'Jan', count: 4300, total: 54300},
+                    {name: 'Feb', count: 5345, total: 54352},
+                    {name: 'Mar', count: 6343, total: 54343},
+                    {name: 'Apr', count: 3344, total: 76446},
+                    {name: 'May', count: 5444, total: 76834},
+                    {name: 'Jun', count: 6533, total: 87634}
+                ]);
+                BootstrapTooltip.show({
+                    content: $table,
+                    event: e
+                });
+            });
+        });
+        function data2table(data) {
+            var $table = $('<table>').css({
+                'white-space': 'nowrap',
+                'border-spacing': '3px',
+                'border-collapse': 'separate'
+            }).append($('<tr>')
+                .append($('<th>').attr('colspan', 3).append('Year 2016')))
+              .append($('<tr>')
+                .append($('<td>').attr('colspan', 3).append($('<hr>').css({
+                    'margin': '5px 0px',
+                    'border-color': 'black'
+                }))));
+            data.forEach(function (p) {
+                $table.append($('<tr>')
+                    .append($('<td>').append(p.name).append(':'))
+                    .append($('<td>').append(Math.round(p.count/p.total*1000)/10 + '%')
+                        .css('text-align', 'right'))
+                    .append($('<td>').append('(' + p.count + '/' + p.total + ')')));
+            });
+            return $table;
+        };
+    </script>
+</head>
+<body style="margin: 15px;">
+    <button class="test">New York</button>
+    <br>
+    <br>
+    <button class="test">Portland</button>
+</body>
+</html>

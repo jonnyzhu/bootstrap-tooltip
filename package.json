@@ -1,0 +1,24 @@
+{
+  "name": "bootstrap-tooltip",
+  "version": "1.0.0",
+  "description": "A popup and moveable tooltip display based on bootstrap.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mkay581/tooltip-js.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "jonnyzhu"
+  },
+  "main": "dist/bootstrap-tooltip.js",
+  "maintainers": [
+    {
+      "name": "jonnyzhu",
+      "email": "jonnyzhu@mail.com"
+    }
+  ]
+}
